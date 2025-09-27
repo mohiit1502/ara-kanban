@@ -5,6 +5,7 @@ import KaDrawer from "./KaDrawer"
 import TaskList from "./TaskList"
 import TaskItem from "./TaskItem"
 import KaModal from "./KaModal"
+import AddTaskForm from "./AddTaskForm"
 
 export {
   /* PLOP_INJECT_EXPORT */
@@ -14,4 +15,5 @@ export {
   TaskList,
   TaskItem,
   KaModal,
+  AddTaskForm,
 }

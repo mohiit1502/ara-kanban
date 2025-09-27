@@ -1,4 +1,24 @@
 .c-KaHeader {
+  .menuBtn {
+    background: var(--ka-color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    outline: none;
+    padding: 0.25rem 0.75rem;
+  }
+  .menuBtn:hover,
+  .menuBtn:focus {
+    background: var(--ka-color-primary-faded);
+    box-shadow: 0 2px 8px 0 rgba(99, 95, 199, 0.12);
+  }
   background: var(--ka-bg-sidebar);
   color: var(--ka-color-font);
   display: flex;

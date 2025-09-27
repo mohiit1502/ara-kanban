@@ -1,3 +1,10 @@
+interface KaModalState {
+  open: boolean
+  body?: React.ReactNode
+  title?: string
+  [key: string]: any
+}
+
 interface Board {
   id: number
   userId: number
@@ -20,4 +27,9 @@ interface Task {
 interface TaskGroup {
   groupId: string
   tasks: Task[]
+}
+
+type StatusOption = {
+  value: string
+  label: string
 }

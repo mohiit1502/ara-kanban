@@ -7,53 +7,34 @@ import "./KaDrawer.component.scss"
 
 const USER_ID = 1
 
-const KaDrawer = (): JSX.Element => {
-  const [loading, setLoading] = useState(true)
-  const [boards, setBoards] = useState<any[]>([])
-  const [newBoardTitle, setNewBoardTitle] = useState<string>("")
-  const [error, setError] = useState<string | null>(null)
-  const [initBoardAdd, setInitBoardAdd] = useState(false)
-  const { theme, setTheme, currentBoard, setCurrentBoard } = useContext(KaContext)
-  const createBoardTextRef = useRef<HTMLInputElement>(null)
+interface KaDrawerProps {
+  boards: any[];
+  currentBoard: any;
+  setCurrentBoard: (board: any) => void;
+  loading: boolean;
+  error: string | null;
+  createBoard: (title: string) => void;
+}
+
+const KaDrawer = ({ boards, loading, error, createBoard }: KaDrawerProps): JSX.Element => {
+  const [newBoardTitle, setNewBoardTitle] = useState<string>("");
+  const [initBoardAdd, setInitBoardAdd] = useState(false);
+  const { theme, setTheme, currentBoard, setCurrentBoard } = useContext(KaContext);
+  const createBoardTextRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    Network.get(API_ROUTES.BOARDS.replace(":userId", String(USER_ID)), {
-      headers: { Authorization: "Bearer testtoken" },
-    })
-      .then((data) => {
-        setBoards(data.boards || [])
-        setCurrentBoard(data.boards?.[0])
-        setLoading(false)
-      })
-      .catch((err) => {
-        setError(err.message)
-        setLoading(false)
-      })
-  }, [])
+    createBoardTextRef.current?.focus();
+  }, [initBoardAdd]);
 
-  useEffect(() => {
-    createBoardTextRef.current?.focus()
-  }, [initBoardAdd])
-
-  const createBoard = () => {
+  const handleCreateBoard = () => {
     if (!newBoardTitle.trim()) {
       alert("Board title cannot be empty");
       return;
     }
-    Network.post(API_ROUTES.BOARDS.replace(":userId", String(USER_ID)), {
-      name: newBoardTitle.trim(),
-    }, {
-      headers: { Authorization: "Bearer testtoken" },
-    })
-      .then((data) => {
-        setBoards((prevBoards) => [...prevBoards, data.board]);
-        setNewBoardTitle("");
-        setInitBoardAdd(false);
-      })
-      .catch((err) => {
-        alert("Error creating board: " + err.message);
-      });
-  }
+    createBoard(newBoardTitle);
+    setNewBoardTitle("");
+    setInitBoardAdd(false);
+  };
 
   return <aside className="c-KaDrawer d-flex flex-column">
     <div className="c-KaDrawer__logo d-flex align-items-center p-4">
@@ -85,14 +66,37 @@ const KaDrawer = (): JSX.Element => {
         </>
         <div className="c-KaDrawer__create-board mt-3">
           {initBoardAdd ? <div className="add-board-container d-flex mx-3">
-            <input ref={createBoardTextRef} onChange={e => setNewBoardTitle(e.target.value)} onBlur={() => setInitBoardAdd(false)} className="c-KaDrawer__add-board-text me-3" />
-            <button className="c-KaDrawer__add-board-button" onMouseDown={createBoard}>Create</button>
+            <input
+              ref={createBoardTextRef}
+              onChange={e => setNewBoardTitle(e.target.value)}
+              onBlur={() => setInitBoardAdd(false)}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleCreateBoard();
+                }
+              }}
+              className="c-KaDrawer__add-board-text me-3"
+            />
+            <button className="c-KaDrawer__add-board-button" onMouseDown={handleCreateBoard}>Create</button>
           </div> : <li className="c-KaDrawer__board cursor-pointer create ps-5 py-2" onClick={() => setInitBoardAdd(true)}>+ Create New Board</li>}
         </div>
       </ul>
     </div>
-    <div className="c-KaDrawer__sidebar-footer mt-auto">
-      <button className="c-KaDrawer__theme-toggle btn btn-outline-secondary" aria-label="Toggle theme" onClick={() => setTheme(theme === KaTheme.DARK ? KaTheme.LIGHT : KaTheme.DARK)} />
+    <div className="d-flex w-100 px-5">
+      <div className="c-KaDrawer__sidebar-footer mt-auto mb-4">
+        <div className="c-KaDrawer__theme-toggle-switch">
+          <span className={`c-KaDrawer__theme-label${theme === KaTheme.LIGHT ? ' active' : ''}`}>LIGHT</span>
+          <button
+            className={`c-KaDrawer__theme-toggle-btn${theme === KaTheme.DARK ? ' dark' : ' light'}`}
+            aria-label="Toggle theme"
+            onClick={() => setTheme(theme === KaTheme.DARK ? KaTheme.LIGHT : KaTheme.DARK)}
+          >
+            <span className="c-KaDrawer__theme-toggle-knob" />
+          </button>
+          <span className={`c-KaDrawer__theme-label${theme === KaTheme.DARK ? ' active' : ''}`}>DARK</span>
+        </div>
+      </div>
     </div>
   </aside>
 }

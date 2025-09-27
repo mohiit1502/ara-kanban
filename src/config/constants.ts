@@ -6,6 +6,8 @@ export const API_ROUTES = {
   BOARD: `${API_BASE_URL}/boards/:userId/:boardId`,
   TASKS: `${API_BASE_URL}/tasks/:boardId`,
   TASK: `${API_BASE_URL}/tasks/:boardId/:taskId`,
+  TASKLISTS: `${API_BASE_URL}/task-lists`,
+  TASKLIST: `${API_BASE_URL}/task-lists/:taskId`,
   USERS: `${API_BASE_URL}/users`,
   USER: `${API_BASE_URL}/users/:id`,
 }

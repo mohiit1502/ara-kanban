@@ -1,5 +1,6 @@
 .c-TaskList {
   width: 20rem;
+  flex: 0 0 20rem;
   .list-color {
     width: 0.75rem;
     height: 0.75rem;
@@ -11,6 +12,7 @@
     background-color: var(--ka-bg-sidebar-darker);
     border-radius: 0.5rem;
     cursor: pointer;
+    margin-top: 1.75rem;
     &:hover {
       .add-new-list-btn {
         background-color: var(--ka-bg-hover);

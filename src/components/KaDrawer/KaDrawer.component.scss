@@ -1,3 +1,58 @@
+// Theme toggle switch styles
+.c-KaDrawer__sidebar-footer {
+  background: var(--ka-bg-main);
+  border-radius: 0.7rem;
+}
+.c-KaDrawer__theme-toggle-switch {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.2rem;
+  gap: 1rem;
+  margin: 0 auto;
+}
+.c-KaDrawer__theme-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ka-color-font-disabled);
+  transition: color 0.2s;
+}
+.c-KaDrawer__theme-label.active {
+  color: var(--ka-color-primary);
+}
+.c-KaDrawer__theme-toggle-btn {
+  background: var(--ka-color-primary-faded);
+  border: none;
+  border-radius: 1.2rem;
+  width: 3.2rem;
+  height: 1.7rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+  outline: none;
+}
+.c-KaDrawer__theme-toggle-btn.light {
+  background: var(--ka-color-primary-faded);
+}
+.c-KaDrawer__theme-toggle-btn.dark {
+  background: var(--ka-color-primary);
+}
+.c-KaDrawer__theme-toggle-knob {
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08);
+  transition: left 0.2s;
+}
+.c-KaDrawer__theme-toggle-btn.dark .c-KaDrawer__theme-toggle-knob {
+  left: 1.65rem;
+}
 .c-KaDrawer {
   flex-basis: 20%;
   max-width: 35rem;

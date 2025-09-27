@@ -21,7 +21,7 @@ const KaMain = (): JSX.Element => {
     }
   }, [currentBoard]);
 
-  return <main className="c-KaMain d-flex p-3 flex-grow-1">
+  return <main className="c-KaMain d-flex p-3 flex-grow-1 mw-10 overflow-auto">
     {taskGroups?.map(taskGroup => <TaskList taskGroup={taskGroup} />)}
     {/* Add a task list to add new list */}
     <TaskList type="add-new" taskGroup={{ groupId: "Add New List", tasks: [] }} />

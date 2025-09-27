@@ -2,17 +2,14 @@ import React from "react"
 
 export type KaTheme = "ka-dark" | "ka-light"
 export interface KaContextType {
-	theme: KaTheme
-	setTheme: (theme: KaTheme) => void
-	currentBoard?: Board
-	setCurrentBoard: (board: Board) => void
-	modal: {
-		open: boolean
-		body?: React.ReactNode
-		title?: string
-		[key: string]: any
-	}
-	setModal: (modal: Partial<KaContextType['modal']>) => void
+	theme: KaTheme;
+	setTheme: (theme: KaTheme) => void;
+	currentBoard?: Board;
+	setCurrentBoard: (board: Board) => void;
+	modal: KaModalState;
+	setModal: (modal: Partial<KaModalState>) => void;
+	mobileDrawerOpen: boolean;
+	setMobileDrawerOpen: (open: boolean) => void;
 }
 
 export const KaContext = React.createContext<KaContextType>({
@@ -20,5 +17,7 @@ export const KaContext = React.createContext<KaContextType>({
 	setTheme: () => { },
 	setCurrentBoard: (board: Board) => { },
 	modal: { open: false },
-	setModal: () => { }
+	setModal: () => { },
+	mobileDrawerOpen: false,
+	setMobileDrawerOpen: () => { }
 })

@@ -9,6 +9,7 @@ export const KaProvider: React.FC<KaProviderProps> = ({ children }) => {
 	const [theme, setTheme] = useState<KaTheme>("ka-dark")
 	const [currentBoard, setCurrentBoard] = useState<Board>()
 	const [modal, setModalState] = useState<{ open: boolean; body?: React.ReactNode; title?: string;[key: string]: any }>({ open: false })
+	const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
 
 	useEffect(() => {
 		document.documentElement.setAttribute("ar-theme", theme)
@@ -20,7 +21,7 @@ export const KaProvider: React.FC<KaProviderProps> = ({ children }) => {
 	}
 
 	return (
-		<KaContext.Provider value={{ theme, setTheme, currentBoard, setCurrentBoard, modal, setModal }}>
+		<KaContext.Provider value={{ theme, setTheme, currentBoard, setCurrentBoard, modal, setModal, mobileDrawerOpen, setMobileDrawerOpen }}>
 			{children}
 		</KaContext.Provider>
 	)
