@@ -1,0 +1,27 @@
+.c-TaskList {
+  width: 20rem;
+  .list-color {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .c-TaskList__new {
+    background-color: var(--ka-bg-sidebar-darker);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      .add-new-list-btn {
+        background-color: var(--ka-bg-hover);
+        color: var(--ka-color-font);
+      }
+    }
+  }
+
+  .add-new-list-btn {
+    color: #555;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+  }
+}

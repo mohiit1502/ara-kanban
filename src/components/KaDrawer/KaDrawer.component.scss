@@ -1,0 +1,94 @@
+.c-KaDrawer {
+  flex-basis: 20%;
+  max-width: 35rem;
+  height: 100vh;
+  background: var(--ka-bg-sidebar);
+  border-right: 1px solid var(--ka-color-border);
+
+  .c-KaDrawer__logo {
+    .c-KaDrawer__logo-icon {
+      align-items: flex-start;
+      gap: 0.25rem;
+      .c-KaDrawer__icon {
+        width: 0.6rem;
+        height: 2rem;
+        border-radius: 0.25rem;
+        display: block;
+      }
+    }
+    .c-KaDrawer__logo-label {
+      font-family: "Noto Sans Chakma", sans-serif;
+      font-size: 2rem;
+    }
+  }
+
+  .c-KaDrawer__board {
+    transition: background-color 0.2s;
+    &.selected {
+      border-radius: 0 2rem 2rem 0;
+      background-color: var(--ka-color-primary);
+    }
+    &:hover {
+      background-color: var(--ka-color-primary-faded);
+    }
+    &.create {
+      color: #635fc7;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .c-KaDrawer__icon--bright {
+    background: #635fc7;
+  }
+  .c-KaDrawer__icon--mid {
+    background: #4b47a7;
+  }
+  .c-KaDrawer__icon--dark {
+    background: #3e3e5e;
+  }
+  .add-board-container {
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: var(--ka-bg-hover);
+    border-radius: 1.5rem;
+    margin: 0.5rem 0 0.5rem 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+
+    .c-KaDrawer__add-board-text {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: var(--ka-bg-card);
+      color: var(--ka-color-font);
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      margin-right: 0.5rem;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.2s;
+    }
+
+    .c-KaDrawer__add-board-text:focus {
+      box-shadow: 0 2px 8px 0 rgba(99, 95, 199, 0.12);
+    }
+
+    .c-KaDrawer__add-board-button {
+      background: var(--ka-color-primary);
+      color: #fff;
+      border: none;
+      border-radius: 1rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.03);
+    }
+
+    .c-KaDrawer__add-board-button:hover {
+      background: var(--ka-color-primary-faded);
+    }
+  }
+}

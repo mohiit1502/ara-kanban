@@ -1,0 +1,26 @@
+.c-KaHeader {
+  background: var(--ka-bg-sidebar);
+  color: var(--ka-color-font);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--ka-color-border);
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 10;
+  .boardTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .addTaskBtn {
+    background: var(--ka-color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .addTaskBtn:hover {
+    background: var(--ka-color-primary-faded);
+  }
+}

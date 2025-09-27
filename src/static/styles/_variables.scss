@@ -1,0 +1,68 @@
+// Common layout variables
+:root {
+  --ar-height-header: 3rem;
+  --ar-height-footer: 2rem;
+  --ar-white: #fafaf0;
+  --ar-color-font-danger-faded: rgba(243, 32, 19, 0.7);
+  --ar-color-font-success-faded: rgba(92, 184, 92, 0.7);
+  --ar-color-font-info-faded: rgba(13, 202, 240, 0.7);
+  --ar-color-font-warning-faded: rgba(255, 191, 0, 0.7);
+  --ar-color-font-dark-faded: rgba(0, 0, 0, 0.7);
+  --ar-color-font-light-faded: rgba(255, 255, 255, 0.7);
+  --ar-color-font-danger: #f32013;
+  --ar-color-font-success: #5cb85c;
+  --ar-color-success: #28a745;
+  --ar-color-success-faded: rgba(40, 167, 69, 0.7);
+  --ar-color-success-dark: #198038;
+  --ar-color-font-info: #0dcaf0;
+  --ar-color-font-warning: #ffbf00;
+  --ar-color-font-dark: #000;
+  --ar-color-font-light: #fff;
+  --ar-color-font-link: #0d6efd;
+  --ar-color-prominent: #f39c12;
+  --ar-bg-selected-4: #0089fc;
+  --ar-bg-selected-4-dark: #357ebd;
+  --ar-color-border: #222;
+  --ar-border: 1px solid var(--ar-color-border) !important;
+  --pl-bg-base: rgba(25, 25, 25, 0.6);
+  --pl-bg-base-darker: rgba(5, 5, 5, 0.8);
+}
+
+// Dark theme colors
+:root[ar-theme="ka-dark"] {
+  --ka-bg: #181820;
+  --ka-bg-sidebar: #2c2c37;
+  --ka-bg-sidebar-darker: #292934;
+  --ka-bg-main: #24242f;
+  --ka-bg-card: #2c2c3c;
+  --ka-bg-hover: #35355a;
+  --ka-color-primary: #635fc7;
+  --ka-color-primary-faded: rgba(99, 95, 199, 0.7);
+  --ka-color-font: #fff;
+  --ka-color-font-secondary: #bfc2d5;
+  --ka-color-font-disabled: #6b6e8a;
+  --ka-color-border: #3e3e5e;
+  --ka-color-accent: #635fc7;
+  --ka-color-accent-faded: rgba(99, 95, 199, 0.2);
+  --ka-color-success: #28a745;
+  --ka-color-danger: #f32013;
+}
+
+// Light theme colors
+:root[ar-theme="ka-light"] {
+  --ka-bg: #f4f7fd;
+  --ka-bg-sidebar: #fff;
+  --ka-bg-main: #f4f7fd;
+  --ka-bg-card: #fff;
+  --ka-bg-hover: #e4ebfa;
+  --ka-color-primary: #635fc7;
+  --ka-color-primary-faded: rgba(99, 95, 199, 0.7);
+  --ka-color-font: #343434;
+  --ka-color-font-secondary: #797979;
+  --ka-color-font-disabled: #a7a7a7;
+  --ka-color-border: #e4ebfa;
+  --ka-color-accent: #635fc7;
+  --ka-color-accent-faded: rgba(99, 95, 199, 0.2);
+  --ka-color-success: #28a745;
+  --ka-color-danger: #f32013;
+}

@@ -1,0 +1,43 @@
+.c-KaModal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.c-KaModal {
+  background: var(--ka-bg-card);
+  color: var(--ka-color-font);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.c-KaModal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--ka-color-font-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 1;
+}
+.c-KaModal__close:hover {
+  color: var(--ka-color-primary);
+}
